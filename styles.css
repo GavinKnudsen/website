@@ -1,0 +1,355 @@
+/* Engineering Workstation / HUD Theme (Orange Variant) */
+
+/* Font Imports */
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@500;700&family=Roboto+Mono:wght@400;700&display=swap');
+
+:root {
+    --bg-primary: #121212;
+    --bg-content: #1d1d1d;
+    --accent-orange: #FF8C00;
+    --accent-orange-hover: #FFA500;
+    --accent-blue: #00BFFF;
+    --accent-cyan: #41EAD4;
+    --text-primary: #EAEAEA;
+    --divider: #333;
+    --card-glow: 0 0 8px var(--accent-orange);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+nav {
+    background: var(--bg-primary); /* Use HUD background color */
+    border-bottom: 2px solid var(--accent-orange);
+    padding: 0.5em 2em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+nav .nav-logo {
+    font-family: 'Exo 2', 'Roboto Mono', system-ui, sans-serif;
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--accent-orange);
+    letter-spacing: 2px;
+}
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 2em;
+}
+nav ul li {
+    display: inline;
+}
+nav ul li a {
+    color: var(--accent-orange);
+    font-weight: 500;
+    text-decoration: none;
+    padding: 0.5em 1em;
+    border-radius: 4px;
+    transition: background 0.2s, color 0.2s, text-decoration 0.2s;
+}
+nav ul li a:hover,
+nav ul li a:focus {
+    background: var(--accent-orange-hover);
+    color: #121212;
+    text-decoration: underline;
+    outline: none;
+    box-shadow: none; /* Remove shadow */
+}
+
+html {
+    font-size: 16px;
+    line-height: 1.5;
+    scroll-behavior: smooth;
+    background: var(--bg-primary);
+    color-scheme: dark;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Exo 2', 'Roboto Mono', system-ui, sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+a {
+    color: var(--accent-orange);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+a:hover, a:focus {
+    color: var(--accent-orange-hover);
+    text-shadow: 0 0 4px var(--accent-orange-hover);
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+ul,
+ol {
+    padding-left: 1.5em;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+    background: var(--bg-content);
+    color: var(--text-primary);
+    border: 1px solid var(--divider);
+    border-radius: 4px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Section and Card Styling */
+.card, .content-section {
+    background: transparent;
+    border-radius: 8px;
+    box-shadow: none; /* No shadow */
+    border: none;
+    padding: 2em 2em 1.5em 2em;
+    margin: 2em auto;
+    max-width: 800px;
+    transition: border-color 0.2s, transform 0.2s;
+}
+.card:hover {
+    background: #232323;
+    /* Optionally add a border or accent for cards */
+    border: 1px solid var(--accent-orange-hover);
+    transform: scale(1.03);
+}
+
+.content-section:hover {
+    background: #181818; /* Slightly different shade for content */
+    border: none;
+    transform: scale(1.02);
+}
+
+/* Project Card Specific Styles */
+.project-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5em;
+    justify-content: center;
+    margin-top: 1em;
+}
+
+.project-card {
+    flex: 1 1 220px;
+    max-width: 300px;
+    background: var(--bg-content);
+    border-radius: 8px;
+    border: none;
+    padding: 1.2em 1em 1em 1em;
+    margin: 0.5em 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: none; /* No shadow */
+    transition: transform 0.2s, background 0.2s;
+}
+
+.project-card:hover {
+    background: #232323; /* Slightly lighter for hover */
+    transform: scale(1.03); /* Scale up for interactivity */
+}
+
+.project-img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    margin-bottom: 0.75em;
+    border: 1px solid var(--divider);
+    object-fit: cover;
+}
+
+.project-card h3 {
+    color: var(--accent-orange);
+    margin: 0.4em 0 0.4em 0;
+    font-size: 1.1em;
+    text-align: center;
+    transition: text-decoration 0.2s;
+}
+.project-card:hover h3 {
+    text-decoration: underline; /* Underline title on hover */
+}
+
+.project-card p {
+    color: var(--text-primary);
+    font-size: 0.98em;
+    text-align: center;
+    margin-bottom: 0.8em;
+}
+
+.project-card .cta {
+    margin-top: auto;
+    width: 100%;
+    transition: background 0.2s, transform 0.2s;
+}
+.project-card .cta:hover, .project-card .cta:focus {
+    background: var(--accent-orange-hover);
+    color: #121212;
+    transform: scale(1.04);
+    text-decoration: underline;
+}
+
+/* Certification Card Styles */
+.cert-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    justify-content: center; /* Center cards in row */
+    align-items: flex-start;
+    margin: 1em 0 2em 0;
+}
+
+.cert-card {
+    flex: 1 1 180px;
+    max-width: 240px;
+    min-width: 160px;
+    background: var(--bg-content);
+    border-radius: 8px;
+    padding: 0.7em 0.7em;
+    margin: 0.2em 0;
+    display: flex;
+    align-items: center;
+    box-shadow: none;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.cert-card:hover {
+    background: #232323;
+    transform: scale(1.03);
+}
+
+.cert-img {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    margin-right: 0.7em;
+    border: 1px solid var(--divider);
+    object-fit: cover;
+}
+
+.cert-card strong {
+    font-size: 1em;
+}
+
+.cert-card div {
+    font-size: 0.92em;
+    line-height: 1.3;
+}
+
+/* Headings and Accent Elements */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--accent-orange); /* orange accent for headlines */
+    font-family: 'Exo 2', 'Roboto Mono', system-ui, sans-serif;
+    font-weight: 700;
+    margin-bottom: 0.5em;
+}
+
+/* Section Divider */
+.content-section:not(:last-child) {
+    border-bottom: 1px solid var(--divider);
+    margin-bottom: 2em;
+}
+
+/* Paragraphs and Text */
+p, li, label, input, textarea {
+    color: var(--text-primary); /* #EAEAEA */
+}
+
+/* Remove orange backgrounds from content */
+.card, .content-section {
+    background: transparent;
+}
+
+/* Buttons: Only CTA uses blue/cyan accent */
+button.cta {
+    background: linear-gradient(90deg, var(--accent-blue), var(--accent-cyan));
+    color: #121212;
+    font-weight: 700;
+    border: none;
+    transition: background 0.2s, transform 0.2s;
+}
+button.cta:hover, button.cta:focus {
+    background: var(--accent-orange-hover);
+    color: #121212;
+    transform: scale(1.04);
+    box-shadow: none; /* Remove shadow */
+    outline: none;
+    text-decoration: underline;
+}
+
+#stars-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 0;
+    display: block;
+}
+
+#hero {
+    background: var(--bg-content) !important;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    background: var(--bg-content);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--accent-orange);
+    border-radius: 4px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 0.5em;
+    align-items: center;
+}
+
+.social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25em;
+    border-radius: 50%;
+    color: var(--accent-orange);
+    background: transparent;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+
+.social-icons a:hover,
+.social-icons a:focus {
+    background: var(--accent-orange-hover);
+    color: #121212;
+    transform: scale(1.15);
+    outline: none;
+}
+
+.social-icons svg {
+    width: 24px;
+    height: 24px;
+    display: block;
+}
