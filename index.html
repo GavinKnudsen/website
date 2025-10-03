@@ -10,99 +10,234 @@
     <canvas id="stars-bg"></canvas>
     <nav>
         <a href="#hero" class="nav-logo">Gavin Knudsen</a>
+        <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('nav ul').classList.toggle('show')">
+            &#9776;
+        </button>
         <ul>
             <li><a href="#hero">Home</a></li>
+            <li><a href="#work">Professional Experience</a></li>
+            <li><a href="#education">Education</a></li>
             <li><a href="#projects">Projects</a></li>
+            <li><a href="#stem-outreach">Leadership & Community</a></li>
             <li><a href="#about-skills">About & Skills</a></li>
             <li><a href="#contact">Contact</a></li>
             <li class="social-icons">
-                <a href="[Your LinkedIn URL]" target="_blank" title="LinkedIn">
+                <a href="https://www.linkedin.com/in/gavin-k-aspiring-engineer" target="_blank" title="LinkedIn">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
                 </a>
-                <a href="[Your GitHub URL]" target="_blank" title="GitHub">
+                <a href="https://github.com/GavinKnudsen" target="_blank" title="GitHub">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                </a>
+                <a href="mailto:contact@gavinknudsen.com" title="Email">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg>
+                </a>
+                <a href="https://gknudsen.hashnode.dev/" target="_blank" title="Hashnode">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12a4 4 0 0 1 8 0 4 4 0 0 1-8 0z"/></svg>
                 </a>
             </li>
         </ul>
     </nav>
-    <section id="hero" class="content-section card">
-        <h1>Welcome!</h1>
-        <p>I'm Gavin Knudsen, an engineer and developer. Explore my work below.</p>
+    <section id="hero" class="content-section">
+    <h1>Gavin Knudsen | Building Robotics for Extreme Environments</h1>
+    <p class="hero-pitch">
+        I'm an electrical engineering student reaching for new frontiers by designing and building the resilient, autonomous systems that will explore space and other challenging environments.
+    </p>
+    <a class="cta" href="#projects">View My Projects</a>
+</section>
+    <section id="work" class="content-section">
+        <h2>Professional Experience</h2>
+        <div class="work-list">
+            <div class="work-card card">
+                <div class="work-card-header">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQ9uzQ311YO8xFltKll2BXnDxXttMi7wLJnQ&s" alt="SDL Logo" class="work-img">
+                    <div class="work-info">
+                        <div class="work-title">Systems Engineering Assistant - Space Dynamics Lab</div>
+                        <div class="work-date">May 2023 - Present</div>
+                    </div>
+                </div>
+                <p>At the Space Dynamics Laboratory, I provide versatile engineering support for a long-term, mission-critical system, focusing on its operational sustainment, ongoing verification, and overall reliability to ensure mission readiness.</p>
+                <ul>
+                    <li>Perform rigorous functional testing on electronic hardware, verifying each board meets strict performance and quality specifications.</li>
+                    <li>Execute comprehensive regression testing after software updates to ensure system stability and reliability.</li>
+                    <li>Install, configure, and maintain Linux-based servers to provide essential infrastructure for engineering and testing teams.</li>
+                    <li>Provide direct support to the FPGA engineer by assisting with test environment setup and the validation of digital logic.</li>
+                </ul>
+            </div>
+
+            <div class="work-card card">
+                <div class="work-card-header">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Utah_State_Aggies_logo.svg/1200px-Utah_State_Aggies_logo.svg.png" alt="Utah State University Logo" class="work-img">
+                    <div class="work-info">
+                        <div class="work-title">Undergraduate Research Assistant - USU Robotics Lab</div>
+                        <div class="work-date">June 2025 - Present</div>
+                    </div>
+                </div>
+                <p>My research focuses on applying optimal control theory to enhance the stability and efficiency of smart microgrids. Working with the ASPIRE research center, I am developing and improving a control system that intelligently manages power flow between solar arrays, battery storage, and a network of electric vehicle chargers.</p>
+                <ul>
+                    <li>Develop and implement a Python-based control application for a physical microgrid testbed, integrating real-time data from PV simulators, batteries, and EV charging hardware.</li>
+                    <li>Analyze and build upon a graduate-level codebase, refactoring and adapting the legacy system to meet new research objectives and hardware configurations.</li>
+                    <li>Research and simulate advanced control strategies to improve the system's response to dynamic inputs, such as power forecasts and grid curtailment commands.</li>
+                    <li>Apply principles of optimal control theory to formulate and solve complex optimization problems, using the Gurobi Optimizer in Python to determine the most efficient EV charging schedules.</li>
+                </ul>
+            </div>
+        </div>
     </section>
-    <section id="projects" class="content-section card">
-        <h2>Projects</h2>
+    <section id="education" class="content-section">
+        <h2>Education</h2>
+        <div class="education-main card">
+            <div class="education-card-header">
+                <img class="work-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Utah_State_Aggies_logo.svg/1200px-Utah_State_Aggies_logo.svg.png" alt="Utah State University Logo">
+                <div class="education-info">
+                    <div><strong>Utah State University</strong> | Logan, UT</div>
+                    <div>Bachelor of Science in Electrical Engineering</div>
+                    <div class="education-date">Expected Graduation: May 2026</div>
+                    <div>Minors: Computer Science, Mathematics, and Business</div>
+                </div>
+            </div>
+            <p>To pursue my passion for robotics and space systems, I am building an interdisciplinary foundation at Utah State University by combining my Electrical Engineering major with minors in Computer Science, Mathematics, and Business.</p>
+            <h3>Relevant Coursework</h3>
+            <ul class="education-courses">
+                <li>Path Planning for Mobile Robotics</li>
+                <li>Robot Operating System 2 (ROS2)</li>
+                <li>Control Systems</li>
+                <li>Mechatronics</li>
+                <li>Space Systems Engineering &amp; Design</li>
+                <li>AI Deployment</li>
+                <li>PCB Design</li>
+            </ul>
+        </div>
+    </section>
+    <section id="projects" class="content-section"> <h2>Projects</h2>
         <div class="project-list">
             <div class="project-card card">
-                <img src="https://picsum.photos/seed/1/600/300" alt="Project 1" class="project-img">
-                <h3>Project Alpha</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.</p>
-                <button class="cta">View Details</button>
+                <iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/6Ik1oWCTPK4?si=H5Q3hhA_Cz5IaGtF" title="O.R.E.O Project Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <h3>O.R.E.O: Autonomous Navigation on Embedded Systems</h3>
+                <p>Developed and deployed a wall-following algorithm on a resource-constrained microcontroller to reliably navigate unknown environments from scratch.</p>
+                <a href="[Link to Project Page/Details]" class="cta">View Details</a>
             </div>
             <div class="project-card card">
-                <img src="https://picsum.photos/seed/2/600/300" alt="Project 2" class="project-img">
-                <h3>Project Beta</h3>
-                <p>Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.</p>
-                <button class="cta">View Details</button>
+                <div class="card-media">
+                    <img src="Assets/L'SPACE ICE HUNTERS.png" alt="L'SPACE Rover Design" class="project-img">
+                </div>
+                <h3>Lunar Rover Systems Design (NASA L'SPACE)</h3>
+                <p>As part of a mission design team, I acted as the systems engineer for a simulated NASA mission, focusing on the integration of various subsystems to ensure seamless operation.</p>
+                <a href="[Link to Project Page/Details]" class="cta">View Details</a>
             </div>
-            <div class="project-card card">
-                <img src="https://picsum.photos/seed/3/600/300" alt="Project 3" class="project-img">
-                <h3>Project Gamma</h3>
-                <p>Maecenas malesuada. Praesent congue erat at massa. Sed cursus turpis vitae tortor.</p>
-                <button class="cta">View Details</button>
+
+            <!-- <div class="project-card card">
+                <img src="" alt="Autonomous Collection Robot" class="project-img">
+                <h3>Autonomous Sample Collection Robot</h3>
+                <p>Senior design project demonstrating a full robotics stack (SLAM, CV, manipulation) to autonomously identify, navigate to, and collect targets in a dynamic environment.</p>
+                <a href="[Link to Project Page/Details]" class="cta">View Details</a>
+            </div> -->
+        </div>
+    </section>
+        <section id="stem-outreach" class="content-section card"><h2>Leadership &amp; Community Engagement</h2>
+        <p>
+            I believe that engineering is about building a better future, and that begins with inspiring the next generation of innovators. I am passionate about STEM outreach and actively seek opportunities to share my knowledge of robotics and space systems with my community, helping to make complex topics accessible and exciting for students of all ages.
+        </p>
+        <div class="work-list">
+            
+            <div class="work-card">
+                <div class="card-media">
+                    <iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/crorBKnbM8Y?si=tXuAI-tKl38QlAkz" title="NASA Space Apps Challenge: Team Communication" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="work-card-header">
+                    <img class="work-img" src="https://pacificspacecenter.com/wp-content/uploads/2023/09/365088704_674173744749041_7857677441248601185_n.jpg" alt="NASA Space Apps Logo">
+                    <div class="work-info">
+                        <div class="work-title">Local Lead</div>
+                        <div class="work-date">NASA International Space Apps Challenge | October 2024</div>
+                    </div>
+                </div>
+                <p>
+                    As the lead organizer for the local chapter of the world's largest space and science hackathon, I was responsible for planning, promoting, and executing the 48-hour event at Utah State University.
+                </p>
+                <ul>
+                    <li>Managed all event logistics, including venue coordination and sponsorships.</li>
+                    <li>Provided technical mentorship to teams, guiding them through ideation and prototyping.</li>
+                    <li>Facilitated the final judging and awards ceremony, showcasing innovative solutions to real-world problems posed by NASA.</li>
+                </ul>
+            </div>
+            
+            <div class="work-card">
+                  <div class="card-media">
+                    <iframe width="100%" height="220" src="https://www.youtube.com/embed/C1mgYZnYzSg" title="Utah Education Network Little Learners, Big Mentors" frameborder="0" allowfullscreen></iframe>
+                </div>
+                
+                <div class="work-card-header">
+                    <img class="work-img" src="https://play-lh.googleusercontent.com/JIowWdUSmS_PXdJJ7EwBh_NYLADcTYpXJZOv6Wc9fIIiigJvuHk5Ha1sStGal9uCrpA" alt="North Logan Library Logo">
+                    <div class="work-info">
+                        <div class="work-title">Robotics Instructor</div>
+                        <div class="work-date">North Logan Library &amp; Adams Elementary School | Winter 2024 - Present</div>
+                    </div>
+                </div>
+                <ul>
+                    <li>Developed a monthly hands-on curriculum for 10-12 year olds from scratch, and using Lego Mindstorms EV3, with a team of engineers and educators covering basic concepts such as programming autonomous robot behavior.</li>
+                    <li>Mentored a class of 12+ students, fostering a collaborative environment that inspired creativity and problem-solving.</li>
+                    <li>Annually demonstrated robotics concepts to students at a local elementary school, enhancing their learning of core science curriculum standards.</li>
+                </ul>
             </div>
         </div>
     </section>
     <section id="about-skills" class="content-section card">
-        <h2>About & Skills</h2>
+        <h2>About Me</h2>
         <p>
-            I'm an electrical and robotics engineer passionate about building high-tech solutions. My experience spans embedded systems, hardware design, and full-stack web development. I love working on challenging problems and collaborating with creative teams.
+            I'm an electrical engineering student at Utah State University with a passion for solving complex problems at the intersection of hardware and software. My goal is to contribute to robotics projects in challenging environments, from deep sea to deep space. I thrive on taking a system from concept and simulation all the way to a functional, real-world prototype.
         </p>
+
         <h3>Technical Skills</h3>
-        <ul>
-            <li>Embedded Systems (C, C++, Microcontrollers)</li>
-            <li>PCB Design & Hardware Prototyping</li>
-            <li>Python & Automation</li>
-            <li>Web Development (TypeScript, React, Node.js)</li>
-            <li>Robotics (ROS, Sensors, Actuators)</li>
-            <li>Linux & DevOps Tools</li>
-            <li>3D CAD & Rapid Prototyping</li>
-        </ul>
-        <h3>Certifications</h3>
+        <div class="skills-grid">
+            <ul>
+                <li><strong>Design Tools:</strong></li>
+                <li>Siemens NX, Altium Designer, STK</li>
+                <li>MATLAB/Simulink, LTspice</li>
+            </ul>
+            <ul>
+                <li><strong>Software & Languages:</strong></li>
+                <li>C/C++, Python, TypeScript</li>
+                <li>ROS, Linux, Git, Docker</li>
+            </ul>
+            <ul>
+                <li><strong>Hardware & EE Concepts:</strong></li>
+                <li>Microcontrollers (STM32, ESP32)</li>
+                <li>PCB Design & Fabrication, Control Systems</li>
+            </ul>
+        </div>
+
+        <!-- <h3>Certifications</h3>
         <div class="cert-list">
             <div class="cert-card">
-                <img src="https://picsum.photos/seed/cert1/80/80" alt="Certification 1" class="cert-img">
+                <img src="https://d7umqicpi7263.cloudfront.net/img/product/0442c679-afbe-4686-8a89-a5d1dbca0933.com/fb1a2a655a825ef73fe7a87b5960c656" alt="STK Logo" class="cert-img">
                 <div>
-                    <strong>Certified Robotics Engineer</strong>
-                    <div>Robotics Institute</div>
-                    <div>Issued: 2022</div>
+                    <strong>STK Grand Master</strong>
+                    <div>Ansys (AGI)</div>
                 </div>
             </div>
             <div class="cert-card">
-                <img src="https://picsum.photos/seed/cert2/80/80" alt="Certification 2" class="cert-img">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTC8hJamNUYMnKihwnyO7Z6aRKetarzJkf76w&s" alt="Altium Logo" class="cert-img">
                 <div>
-                    <strong>Embedded Systems Specialist</strong>
-                    <div>Microchip Academy</div>
-                    <div>Issued: 2021</div>
+                    <strong>Certified PCB Designer</strong>
+                    <div>Altium</div>
                 </div>
             </div>
             <div class="cert-card">
-                <img src="https://picsum.photos/seed/cert3/80/80" alt="Certification 3" class="cert-img">
+                <img src="https://cdn.worldvectorlogo.com/logos/nx-cad-cam.svg" alt="Siemens NX Logo" class="cert-img">
                 <div>
-                    <strong>Full Stack Web Developer</strong>
-                    <div>Code University</div>
-                    <div>Issued: 2023</div>
+                    <strong>Certified NX CAD User</strong>
+                    <div>Siemens</div>
                 </div>
             </div>
-        </div>
-        <h3>Summary</h3>
-        <p>
-            I thrive in environments that blend engineering rigor with creative problem solving. My goal is to deliver reliable, elegant solutions that push the boundaries of technology.
-        </p>
+        </div> -->
     </section>
     <section id="contact" class="content-section card">
-        <h2>Contact</h2>
-        <p>Get in touch with me!</p>
-        <!-- Add contact form or info here -->
+        <h2>Get In Touch</h2>
+        <p>
+            I'm always open to discussing new projects and opportunities. Feel free to reach out via email or connect with me on LinkedIn.
+        </p>
+        <div class="contact-links">
+            <a href="mailto:contact@gavinknudsen.com" class="cta">Email Me</a>
+            <a href="https://www.linkedin.com/in/gavin-k-aspiring-engineer" class="cta" target="_blank">LinkedIn Profile</a>
+        </div>
     </section>
     <script src="stars.js"></script>
 </body>

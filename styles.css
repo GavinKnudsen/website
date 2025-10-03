@@ -66,6 +66,72 @@ nav ul li a:focus {
     box-shadow: none; /* Remove shadow */
 }
 
+/* Hamburger menu button */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--accent-orange);
+    font-size: 2em;
+    cursor: pointer;
+    margin-left: auto;
+    order: 2; /* Ensure it's after the logo */
+}
+
+/* Responsive nav styles */
+@media (max-width: 900px) {
+    nav {
+        flex-direction: row;
+        align-items: center;
+        padding: 0.5em 1em;
+    }
+    nav .nav-logo {
+        order: 1;
+    }
+    .nav-toggle {
+        display: block;
+        order: 2;
+        margin-left: 1em;
+    }
+    nav ul {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 0.5em;
+        width: 100vw;
+        overflow-x: auto;
+        display: none;
+        background: var(--bg-primary);
+        padding: 0.7em 0.3em;
+        margin: 0;
+        border-radius: 8px;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 101;
+        font-size: 0.97em;
+    }
+    nav ul.show {
+        display: flex;
+    }
+    nav ul li {
+        display: inline-block;
+        width: auto;
+        min-width: 90px;
+        white-space: nowrap;
+    }
+    nav ul li a {
+        padding: 0.4em 0.7em;
+        font-size: 0.97em;
+    }
+    .social-icons {
+        justify-content: flex-start;
+        margin-top: 0.5em;
+    }
+    nav {
+        position: relative;
+    }
+}
+
 html {
     font-size: 16px;
     line-height: 1.5;
@@ -89,7 +155,6 @@ a {
 }
 a:hover, a:focus {
     color: var(--accent-orange-hover);
-    text-shadow: 0 0 4px var(--accent-orange-hover);
 }
 
 img,
@@ -123,11 +188,13 @@ textarea {
 .card, .content-section {
     background: transparent;
     border-radius: 8px;
-    box-shadow: none; /* No shadow */
+    box-shadow: none !important; /* No shadow */
     border: none;
     padding: 2em 2em 1.5em 2em;
     margin: 2em auto;
-    max-width: 800px;
+    max-width: 1000px; /* Increased for larger screens */
+    width: 100%;      /* Make container fill available width */
+    box-sizing: border-box;
     transition: border-color 0.2s, transform 0.2s;
 }
 .card:hover {
@@ -135,73 +202,86 @@ textarea {
     /* Optionally add a border or accent for cards */
     border: 1px solid var(--accent-orange-hover);
     transform: scale(1.03);
+    box-shadow: none !important;
 }
 
 .content-section:hover {
     background: #181818; /* Slightly different shade for content */
     border: none;
     transform: scale(1.02);
+    box-shadow: none !important;
+}
+
+/* Responsive container for smaller screens */
+@media (max-width: 1000px) {
+    .card, .content-section {
+        max-width: 98vw;
+        padding: 1.2em 0.7em 1em 0.7em;
+    }
 }
 
 /* Project Card Specific Styles */
 .project-list {
     display: flex;
-    flex-wrap: wrap;
-    gap: 1.5em;
-    justify-content: center;
+    flex-direction: column; /* Stack vertically */
+    gap: 2em;
+    justify-content: flex-start;
+    align-items: stretch;
     margin-top: 1em;
 }
 
 .project-card {
-    flex: 1 1 220px;
-    max-width: 300px;
+    display: flex;
+    flex-direction: column;
     background: var(--bg-content);
     border-radius: 8px;
     border: none;
-    padding: 1.2em 1em 1em 1em;
-    margin: 0.5em 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: none; /* No shadow */
-    transition: transform 0.2s, background 0.2s;
+    padding: 1.5em 1.2em 1em 1.2em;
+    margin: 0;
+    box-shadow: none !important;
+    transition: background 0.2s, transform 0.2s;
+    max-width: 700px;
+    width: 100%;
+    align-self: center;
 }
 
 .project-card:hover {
-    background: #232323; /* Slightly lighter for hover */
-    transform: scale(1.03); /* Scale up for interactivity */
+    background: #232323;
+    transform: scale(1.02);
+    border: 1px solid var(--accent-orange-hover);
 }
 
 .project-img {
-    width: 100%;
-    height: auto;
-    border-radius: 6px;
-    margin-bottom: 0.75em;
+    width: 64px;
+    height: 64px;
+    border-radius: 8px;
     border: 1px solid var(--divider);
-    object-fit: cover;
+    object-fit: contain;
+    background: #fff;
+    margin-bottom: 0.7em;
+    display: block;
+    align-self: flex-start;
 }
 
 .project-card h3 {
     color: var(--accent-orange);
-    margin: 0.4em 0 0.4em 0;
-    font-size: 1.1em;
-    text-align: center;
-    transition: text-decoration 0.2s;
-}
-.project-card:hover h3 {
-    text-decoration: underline; /* Underline title on hover */
+    margin: 0.4em 0 0.2em 0;
+    font-size: 1.08em;
+    font-weight: 700;
+    text-align: left;
 }
 
 .project-card p {
     color: var(--text-primary);
     font-size: 0.98em;
-    text-align: center;
-    margin-bottom: 0.8em;
+    margin: 0.2em 0 0.5em 0;
+    text-align: left;
 }
 
 .project-card .cta {
-    margin-top: auto;
-    width: 100%;
+    margin-top: 1em;
+    width: fit-content;
+    align-self: flex-start;
     transition: background 0.2s, transform 0.2s;
 }
 .project-card .cta:hover, .project-card .cta:focus {
@@ -209,6 +289,11 @@ textarea {
     color: #121212;
     transform: scale(1.04);
     text-decoration: underline;
+}
+
+button.cta a {
+    color: inherit;
+    text-decoration: none;
 }
 
 /* Certification Card Styles */
@@ -258,6 +343,158 @@ textarea {
     line-height: 1.3;
 }
 
+/* Professional Experience Section Styles */
+.work-list {
+    display: flex;
+    flex-direction: column; /* Stack cards vertically */
+    gap: 2em;
+    justify-content: flex-start;
+    align-items: stretch;
+    margin-top: 1em;
+}
+
+.work-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-content);
+    border-radius: 8px;
+    border: none;
+    padding: 1.5em 1.2em 1em 1.2em;
+    margin: 0;
+    box-shadow: none !important;
+    transition: background 0.2s, transform 0.2s;
+    max-width: 700px;
+    width: 100%;
+    align-self: center;
+}
+
+.work-card:hover {
+    background: #232323;
+    transform: scale(1.02);
+    border: 1px solid var(--accent-orange-hover);
+}
+
+.work-card-header {
+    display: flex;
+    align-items: center;
+    gap: 1.2em;
+    margin-bottom: 0.7em;
+}
+
+.work-img {
+    width: 64px;
+    height: 64px;
+    border-radius: 64px;
+    border: 1px solid var(--divider);
+    object-fit: contain;
+    background: #fff;
+    flex-shrink: 0;
+}
+
+.work-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.work-title {
+    color: var(--accent-orange);
+    font-size: 1.08em;
+    font-weight: 700;
+    margin-bottom: 0.2em;
+}
+
+.work-date {
+    color: var(--text-primary);
+    font-size: 0.97em;
+    margin-bottom: 0.1em;
+}
+
+.work-card p {
+    color: var(--text-primary);
+    font-size: 0.98em;
+    margin: 0.2em 0 0.5em 0;
+}
+
+.work-card ul {
+    margin: 0.5em 0 0 0;
+    padding-left: 1.2em;
+    font-size: 0.97em;
+}
+
+.work-card li {
+    margin-bottom: 0.3em;
+    color: var(--text-primary);
+}
+
+/* Education Section Styles */
+.education-main {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 1.5em 1.2em 1em 1.2em;
+    margin: 0 auto;
+    max-width: 700px;
+    box-shadow: none !important;
+    transition: background 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.card .education-main:hover,
+.content-section.card .education-main:hover {
+    background: #232323;
+    border: 1px solid var(--accent-orange-hover);
+    transform: scale(1.02);
+}
+
+.education-header {
+    font-size: 1.05em;
+    margin-bottom: 0.5em;
+    line-height: 1.5;
+}
+
+.education-date {
+    color: var(--accent-orange);
+    font-weight: 500;
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+}
+
+.education-courses {
+    margin: 0.5em 0 0 0;
+    padding-left: 1.2em;
+    font-size: 0.97em;
+}
+
+.education-courses li {
+    margin-bottom: 0.3em;
+    color: var(--text-primary);
+}
+
+/* Education Card Header Styles */
+.education-card-header {
+    display: flex;
+    align-items: center;
+    gap: 1.2em;
+    margin-bottom: 0.7em;
+}
+
+.education-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 1.05em;
+    line-height: 1.5;
+}
+
+.education-card-header .education-date {
+    color: var(--accent-orange);
+    font-weight: 500;
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+}
+
 /* Headings and Accent Elements */
 h1, h2, h3, h4, h5, h6 {
     color: var(--accent-orange); /* orange accent for headlines */
@@ -268,7 +505,6 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Section Divider */
 .content-section:not(:last-child) {
-    border-bottom: 1px solid var(--divider);
     margin-bottom: 2em;
 }
 
@@ -313,6 +549,37 @@ button.cta:hover, button.cta:focus {
 #hero {
     background: var(--bg-content) !important;
 }
+.hero-pitch {
+    font-size: 1.2em;
+    margin: 0.5em 0 1em 0;
+    color: var(--text-primary);
+    max-width: 600px;
+}
+
+#hero .cta {
+    display: inline-block;
+    padding: 0.7em 1.4em;
+    font-size: 1em;
+    font-weight: 700;
+    border-radius: 6px;
+    background: linear-gradient(90deg, var(--accent-blue), var(--accent-cyan));
+    color: #121212;
+    text-align: center;
+    border: none;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+    text-decoration: none;
+    box-shadow: none;
+}
+
+#hero .cta:hover,
+#hero .cta:focus {
+    background: var(--accent-orange-hover);
+    color: #121212;
+    transform: scale(1.04);
+    text-decoration: underline;
+    outline: none;
+}
+ 
 
 ::-webkit-scrollbar {
     width: 8px;
@@ -352,4 +619,73 @@ button.cta:hover, button.cta:focus {
     width: 24px;
     height: 24px;
     display: block;
+}
+
+#stem-outreach {
+    margin-top: 2em;
+}
+
+/* Card Media (Video/Embed) Styles */
+.card-media {
+    position: relative;
+    padding-bottom: 56.25%; /* Creates a 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 1em;
+    background: #000; /* Background for when video loads */
+}
+
+.card-media iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.card-media img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    background: #000;
+}
+
+/* Contact Links Styles */
+.contact-links {
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.2em;
+}
+
+.contact-links .cta {
+    display: inline-block;
+    padding: 0.7em 1.4em;
+    font-size: 1em;
+    font-weight: 700;
+    border-radius: 6px;
+    background: linear-gradient(90deg, var(--accent-blue), var(--accent-cyan));
+    color: #121212;
+    text-align: center;
+    border: none;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+    text-decoration: none;
+    box-shadow: none;
+}
+
+.contact-links .cta:hover,
+.contact-links .cta:focus {
+    background: var(--accent-orange-hover);
+    color: #121212;
+    transform: scale(1.04);
+    text-decoration: underline;
+    outline: none;
 }
