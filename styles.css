@@ -745,13 +745,13 @@ button.cta:hover, button.cta:focus {
 /* Card Media (Video/Embed) Styles */
 .card-media {
     position: relative;
-    padding-bottom: 56.25%; /* Creates a 16:9 aspect ratio */
+    padding-bottom: 56.25%; 
     height: 0;
     overflow: hidden;
     width: 100%;
     border-radius: 8px;
     margin-bottom: 1em;
-    background: #000; /* Background for when video loads */
+    background: #000;
 }
 
 .card-media iframe {
