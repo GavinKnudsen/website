@@ -8,12 +8,15 @@
 </head>
 <body>
     <canvas id="stars-bg"></canvas>
-    <nav>
+    <nav role="navigation">
         <a href="#hero" class="nav-logo">Gavin Knudsen</a>
-        <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('nav ul').classList.toggle('show')">
-            ☰
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"
+            onclick="this.setAttribute('aria-expanded', document.getElementById('main-nav').classList.toggle('show'))">
+            <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+            </span>
         </button>
-        <ul>
+        <ul id="main-nav">
             <li><a href="#hero">Home</a></li>
             <li><a href="#work">Professional Experience</a></li>
             <li><a href="#education">Education</a></li>

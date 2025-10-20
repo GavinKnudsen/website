@@ -21,6 +21,7 @@
     box-sizing: border-box;
 }
 
+/* --- Base Navigation Styles --- */
 nav {
     background: var(--bg-primary); /* Use HUD background color */
     border-bottom: 2px solid var(--accent-orange);
@@ -39,117 +40,214 @@ nav .nav-logo {
     color: var(--accent-orange);
     letter-spacing: 2px;
 }
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 2em;
-}
-nav ul li {
-    display: inline;
-}
-nav ul li a {
+
+/* --- Hamburger Button (Always Visible) --- */
+.nav-toggle {
+    display: block;
+    background: none;
+    border: none;
     color: var(--accent-orange);
-    font-weight: 500;
-    text-decoration: none;
-    padding: 0.5em 1em;
-    border-radius: 4px;
-    transition: background 0.2s, color 0.2s, text-decoration 0.2s;
+    cursor: pointer;
+    margin-left: auto;
+    order: 2;
+    position: relative;
+    width: 36px;
+    height: 28px;
+    padding: 0;
+    z-index: 110;
+    -webkit-tap-highlight-color: transparent;
 }
-nav ul li a:hover,
-nav ul li a:focus {
+
+.hamburger-box {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+
+.hamburger-inner,
+.hamburger-inner::before,
+.hamburger-inner::after {
+    position: absolute;
+    left: 50%;
+    width: 22px;
+    height: 3px;
+    background-color: var(--accent-orange);
+    border-radius: 2px;
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out, opacity 0.2s ease-in-out;
+    transform-origin: center;
+}
+
+.hamburger-inner {
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+}
+
+.hamburger-inner::before,
+.hamburger-inner::after {
+    content: '';
+    display: block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.hamburger-inner::before {
+    top: calc(50% - 9px);
+}
+
+.hamburger-inner::after {
+    top: calc(50% + 9px);
+}
+
+/* --- Hamburger Animation --- */
+.nav-toggle[aria-expanded="true"] .hamburger-inner {
+    transform: translate(-50%, -50%) rotate(45deg);
+    background-color: var(--accent-orange-hover);
+}
+
+.nav-toggle[aria-expanded="true"] .hamburger-inner::before {
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-90deg);
+    background-color: var(--accent-orange-hover);
+}
+
+.nav-toggle[aria-expanded="true"] .hamburger-inner::after {
+    top: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(0deg);
+}
+
+
+/* --- Mobile-First Menu Styles (Default) --- */
+#main-nav {
+    display: none; 
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    z-index: 101;
+    background: var(--bg-primary);
+    border-bottom: 2px solid var(--accent-orange);
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    overflow-y: auto;
+    max-height: calc(100vh - 70px); /* Prevent overflow on short screens */
+}
+
+#main-nav.show {
+    display: flex;
+}
+
+#main-nav li {
+    display: block;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid var(--divider);
+}
+
+#main-nav li a {
+    display: block;
+    padding: 1em 1em;
+    width: 100%;
+}
+
+#main-nav li a:hover,
+#main-nav li a:focus {
     background: var(--accent-orange-hover);
     color: #121212;
     text-decoration: underline;
     outline: none;
-    box-shadow: none; /* Remove shadow */
 }
 
-/* Hamburger menu button */
-.nav-toggle {
-    display: none;
-    background: none;
-    border: none;
-    color: var(--accent-orange);
-    font-size: 2em;
-    cursor: pointer;
-    margin-left: auto;
-    order: 2; /* Ensure it's after the logo */
+#main-nav li:last-child {
+    border-bottom: none;
 }
 
-/* --- UPDATED RESPONSIVE NAV STYLES --- */
+#main-nav li.social-icons {
+    padding: 1em 1em;
+    justify-content: center;
+}
+
+/* --- NEW: Override for Social Icons --- */
+/* This rule overrides '#main-nav li a' for the icons */
+#main-nav li.social-icons a {
+    display: inline-flex; /* Use inline-flex to align icon */
+    align-items: center;
+    justify-content: center;
+    width: auto; /* Override width: 100% */
+    padding: 0.25em; /* Original small padding */
+    border-radius: 50%; /* Re-apply from .social-icons a */
+    
+    /* Re-apply transitions from .social-icons a */
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+
+/* This new rule overrides '#main-nav li a:hover' for the icons */
+#main-nav li.social-icons a:hover,
+#main-nav li.social-icons a:focus {
+    background: var(--accent-orange-hover);
+    color: #121212;
+    transform: scale(1.15); /* Re-apply from .social-icons a:hover */
+    outline: none;
+    text-decoration: none; /* Remove underline */
+}
+/* --- End Social Icon Override --- */
+
+
+/* --- Mobile Nav Bar Layout (< 900px) --- */
 @media (max-width: 900px) {
     nav {
-        flex-direction: row;
-        /* Make sure it's relative for the absolute-positioned menu */
-        position: relative; 
-        align-items: center;
         padding: 0.5em 1em;
     }
     nav .nav-logo {
         order: 1;
     }
     .nav-toggle {
-        display: block;
         order: 2;
         margin-left: 1em;
     }
+}
 
-    /* This is the new, improved dropdown menu */
-    nav ul {
-        /* Change from flex to block */
-        display: none;
-        position: absolute;
-        top: 100%; /* Position it right below the nav bar */
-        left: 0;
-        width: 100%;
-        background: var(--bg-primary);
-        /* Add a slight border to separate it */
-        border-bottom: 2px solid var(--accent-orange);
+
+/* --- Compact Desktop Menu (> 900px) --- */
+@media (min-width: 901px) {
+    #main-nav {
+        /* Positioning */
+        left: auto; /* Unset mobile 'left: 0' */
+        right: 2em; /* Align with nav bar padding */
+        top: calc(100% + 0.5em); /* Add small gap from nav bar */
         
-        /* Vertical layout */
-        flex-direction: column;
-        align-items: center;
-        padding: 0;
-        margin: 0;
-        z-index: 101;
-
-        /* Remove old horizontal scroll properties */
-        flex-wrap: nowrap;
-        overflow-x: hidden;
-        overflow-y: auto;
+        /* Size */
+        width: 320px; /* Set a compact width */
+        
+        /* Appearance */
+        border: 1px solid var(--accent-orange);
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        
+        /* Layout */
+        align-items: flex-start; /* Align items to the left */
     }
 
-    nav ul.show {
-        /* This rule stays the same */
-        display: flex;
-    }
-    
-    nav ul li {
-        display: block;
-        width: 100%; /* Make each link full-width */
-        text-align: center;
-        white-space: normal;
-    }
-    
-    nav ul li a {
-        display: block; /* Make the link fill the <li> */
-        padding: 1em 1em; /* Give it more touch-friendly padding */
-        width: 100%;
-        border-bottom: 1px solid var(--divider); /* Add separators */
+    #main-nav li {
+        text-align: left; /* Align text to the left */
     }
 
-    nav ul li:last-child a {
-        border-bottom: none;
+    #main-nav li a {
+        padding: 0.8em 1.2em; /* Tweak padding for compact view */
     }
-    
-    .social-icons {
-        justify-content: center; /* Center the social icons */
-        padding: 0.5em 0;
+
+    /* Override center alignment for social icons */
+    #main-nav li.social-icons {
+        justify-content: flex-start;
+        padding: 0.8em 1.2em; /* Match the <a> padding */
     }
 }
-/* --- END UPDATED NAV STYLES --- */
+/* --- End Nav Styles --- */
+
 
 html {
     font-size: 16px;
