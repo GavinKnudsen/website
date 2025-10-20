@@ -11,7 +11,7 @@
     <nav>
         <a href="#hero" class="nav-logo">Gavin Knudsen</a>
         <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('nav ul').classList.toggle('show')">
-            &#9776;
+            ☰
         </button>
         <ul>
             <li><a href="#hero">Home</a></li>
@@ -38,11 +38,12 @@
         </ul>
     </nav>
     <section id="hero" class="content-section">
-    <h1>Gavin Knudsen | Building Robotics for Extreme Environments</h1>
+    <h1>Gavin Knudsen | Autonomous Systems, Space Systems, Electrical Design</h1>
     <p class="hero-pitch">
-        I'm an electrical engineering student reaching for new frontiers by designing and building the resilient, autonomous systems that will explore space and other challenging environments.
+        I take a systems-level approach to controls and automation: integrating hardware, firmware, and software to deliver resilient, testable autonomous systems that operate reliably in challenging environments.
+        My work focuses on control design, system integration, and verification.
     </p>
-    <a class="cta" href="#projects">View My Projects</a>
+    <a class="cta" href="#projects">Explore Systems & Controls Projects</a>
 </section>
     <section id="work" class="content-section">
         <h2>Professional Experience</h2>
@@ -55,7 +56,10 @@
                         <div class="work-date">May 2023 - Present</div>
                     </div>
                 </div>
-                <p>At the Space Dynamics Laboratory, I provide versatile engineering support for a long-term, mission-critical system, focusing on its operational sustainment, ongoing verification, and overall reliability to ensure mission readiness.</p>
+                <p>
+                    At the Space Dynamics Laboratory I support mission-critical systems with a focus on systems integration and verification.
+                    I help bridge software, FPGA, and hardware to keep complex systems flight-ready.
+                </p>
                 <ul>
                     <li>Perform rigorous functional testing on electronic hardware, verifying each board meets strict performance and quality specifications.</li>
                     <li>Execute comprehensive regression testing after software updates to ensure system stability and reliability.</li>
@@ -101,7 +105,7 @@
                 <li>Robot Operating System 2 (ROS2)</li>
                 <li>Control Systems</li>
                 <li>Mechatronics</li>
-                <li>Space Systems Engineering &amp; Design</li>
+                <li>Space Systems Engineering & Design</li>
                 <li>AI Deployment</li>
                 <li>PCB Design</li>
             </ul>
@@ -112,27 +116,20 @@
             <div class="project-card card">
                 <iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/6Ik1oWCTPK4?si=H5Q3hhA_Cz5IaGtF" title="O.R.E.O Project Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 <h3>O.R.E.O: Autonomous Navigation on Embedded Systems</h3>
-                <p>Developed and deployed a wall-following algorithm on a resource-constrained microcontroller to reliably navigate unknown environments from scratch.</p>
-                <a href="[Link to Project Page/Details]" class="cta">View Details</a>
+                <p>Designed and implemented an autonomous navigation system on a resource-constrained microcontroller. This project involved the complete system integration of sonar sensors and motor drivers with a real-time wall-following control algorithm to reliably navigate unknown environments.</p>
             </div>
             <div class="project-card card">
                 <div class="card-media">
                     <img src="Assets/L'SPACE ICE HUNTERS.png" alt="L'SPACE Rover Design" class="project-img">
                 </div>
                 <h3>Lunar Rover Systems Design (NASA L'SPACE)</h3>
-                <p>As part of a mission design team, I acted as the systems engineer for a simulated NASA mission, focusing on the integration of various subsystems to ensure seamless operation.</p>
-                <a href="[Link to Project Page/Details]" class="cta">View Details</a>
+                <p>Served as Lead Systems Engineer for a 12-person team in a NASA-sponsored lunar mission design challenge. I was responsible for developing the Concept of Operations (ConOps), defining subsystem requirements and interfaces, and managing the technical integration of the power, thermal, and autonomy subsystems.</p>
+                <a href="mailto:contact@gavinknudsen.com" class="cta">Copies of deliverables available upon request</a>
             </div>
 
-            <!-- <div class="project-card card">
-                <img src="" alt="Autonomous Collection Robot" class="project-img">
-                <h3>Autonomous Sample Collection Robot</h3>
-                <p>Senior design project demonstrating a full robotics stack (SLAM, CV, manipulation) to autonomously identify, navigate to, and collect targets in a dynamic environment.</p>
-                <a href="[Link to Project Page/Details]" class="cta">View Details</a>
-            </div> -->
-        </div>
+            </div>
     </section>
-        <section id="stem-outreach" class="content-section card"><h2>Leadership &amp; Community Engagement</h2>
+        <section id="stem-outreach" class="content-section card"><h2>Leadership & Community Engagement</h2>
         <p>
             I believe that engineering is about building a better future, and that begins with inspiring the next generation of innovators. I am passionate about STEM outreach and actively seek opportunities to share my knowledge of robotics and space systems with my community, helping to make complex topics accessible and exciting for students of all ages.
         </p>
@@ -168,7 +165,7 @@
                     <img class="work-img" src="https://play-lh.googleusercontent.com/JIowWdUSmS_PXdJJ7EwBh_NYLADcTYpXJZOv6Wc9fIIiigJvuHk5Ha1sStGal9uCrpA" alt="North Logan Library Logo">
                     <div class="work-info">
                         <div class="work-title">Robotics Instructor</div>
-                        <div class="work-date">North Logan Library &amp; Adams Elementary School | Winter 2024 - Present</div>
+                        <div class="work-date">North Logan Library & Adams Elementary School | Winter 2024 - Present</div>
                     </div>
                 </div>
                 <ul>
@@ -182,29 +179,41 @@
     <section id="about-skills" class="content-section card">
         <h2>About Me</h2>
         <p>
-            I'm an electrical engineering student at Utah State University with a passion for solving complex problems at the intersection of hardware and software. My goal is to contribute to robotics projects in challenging environments, from deep sea to deep space. I thrive on taking a system from concept and simulation all the way to a functional, real-world prototype.
+            I'm an electrical engineering student at Utah State University with a passion for solving complex problems at the intersection of hardware and software. My goal is to contribute to autonomous systems in challenging environments, from deep sea to deep space. I thrive on taking a system from concept and simulation all the way to a functional, real-world prototype.
         </p>
 
         <h3>Technical Skills</h3>
         <div class="skills-grid">
             <ul>
-                <li><strong>Design Tools:</strong></li>
-                <li>Siemens NX, Altium Designer, STK</li>
-                <li>MATLAB/Simulink, LTspice</li>
+                <li><strong>Software & Languages</strong></li>
+                <li>Python</li>
+                <li>C/C++</li>
+                <li>Java</li>
+                <li>ROS2</li>
+                <li>Linux</li>
+                <li>Git</li>
+                <li>HTML, CSS, JavaScript</li>
+                <li>AI Deployment</li>
             </ul>
             <ul>
-                <li><strong>Software & Languages:</strong></li>
-                <li>C/C++, Python, TypeScript</li>
-                <li>ROS, Linux, Git, Docker</li>
+                <li><strong>Controls & Systems Engineering</strong></li>
+                <li>Control Theory</li>
+                <li>Gurobi Solver</li>
+                <li>MATLAB/Simulink</li>
+                <li>Capella (MBSE)</li>
+                <li>Requirements Design</li>
+                <li>Technical Communication</li>
             </ul>
             <ul>
-                <li><strong>Hardware & EE Concepts:</strong></li>
-                <li>Microcontrollers (STM32, ESP32)</li>
-                <li>PCB Design & Fabrication, Control Systems</li>
+                <li><strong>Electronics & Hardware</strong></li>
+                <li>PCB Design (Altium, KiCad)</li>
+                <li>Circuit Theory & Simulation (LTspice)</li>
+                <li>Test Equipment (Oscilloscope, Multimeter)</li>
+                <li>IT Support & Server Admin</li>
             </ul>
         </div>
 
-        <!-- <h3>Certifications</h3>
+        <h3>Certifications</h3>
         <div class="cert-list">
             <div class="cert-card">
                 <img src="https://d7umqicpi7263.cloudfront.net/img/product/0442c679-afbe-4686-8a89-a5d1dbca0933.com/fb1a2a655a825ef73fe7a87b5960c656" alt="STK Logo" class="cert-img">
@@ -227,7 +236,14 @@
                     <div>Siemens</div>
                 </div>
             </div>
-        </div> -->
+            <a href="https://www.certiport.com/portal/Pages/PrintTranscriptInfo.aspx?action=Cert&id=420&cvid=mWcygHZyqSq75rJf39dUow==" class="cert-card">
+                <img src="https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg" alt="Microsoft Office Logo" class="cert-img">
+                <div>
+                    <strong>Excel 2019 Associate</strong>
+                    <div>Microsoft</div>
+                </div>
+            </a>
+        </div>
     </section>
     <section id="contact" class="content-section card">
         <h2>Get In Touch</h2>

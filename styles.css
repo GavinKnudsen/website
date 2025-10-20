@@ -78,10 +78,12 @@ nav ul li a:focus {
     order: 2; /* Ensure it's after the logo */
 }
 
-/* Responsive nav styles */
+/* --- UPDATED RESPONSIVE NAV STYLES --- */
 @media (max-width: 900px) {
     nav {
         flex-direction: row;
+        /* Make sure it's relative for the absolute-positioned menu */
+        position: relative; 
         align-items: center;
         padding: 0.5em 1em;
     }
@@ -93,44 +95,61 @@ nav ul li a:focus {
         order: 2;
         margin-left: 1em;
     }
+
+    /* This is the new, improved dropdown menu */
     nav ul {
-        flex-direction: row;
-        flex-wrap: nowrap;
-        gap: 0.5em;
-        width: 100vw;
-        overflow-x: auto;
+        /* Change from flex to block */
         display: none;
-        background: var(--bg-primary);
-        padding: 0.7em 0.3em;
-        margin: 0;
-        border-radius: 8px;
         position: absolute;
-        top: 100%;
+        top: 100%; /* Position it right below the nav bar */
         left: 0;
+        width: 100%;
+        background: var(--bg-primary);
+        /* Add a slight border to separate it */
+        border-bottom: 2px solid var(--accent-orange);
+        
+        /* Vertical layout */
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+        margin: 0;
         z-index: 101;
-        font-size: 0.97em;
+
+        /* Remove old horizontal scroll properties */
+        flex-wrap: nowrap;
+        overflow-x: hidden;
+        overflow-y: auto;
     }
+
     nav ul.show {
+        /* This rule stays the same */
         display: flex;
     }
+    
     nav ul li {
-        display: inline-block;
-        width: auto;
-        min-width: 90px;
-        white-space: nowrap;
+        display: block;
+        width: 100%; /* Make each link full-width */
+        text-align: center;
+        white-space: normal;
     }
+    
     nav ul li a {
-        padding: 0.4em 0.7em;
-        font-size: 0.97em;
+        display: block; /* Make the link fill the <li> */
+        padding: 1em 1em; /* Give it more touch-friendly padding */
+        width: 100%;
+        border-bottom: 1px solid var(--divider); /* Add separators */
     }
+
+    nav ul li:last-child a {
+        border-bottom: none;
+    }
+    
     .social-icons {
-        justify-content: flex-start;
-        margin-top: 0.5em;
-    }
-    nav {
-        position: relative;
+        justify-content: center; /* Center the social icons */
+        padding: 0.5em 0;
     }
 }
+/* --- END UPDATED NAV STYLES --- */
 
 html {
     font-size: 16px;
@@ -688,4 +707,81 @@ button.cta:hover, button.cta:focus {
     transform: scale(1.04);
     text-decoration: underline;
     outline: none;
+}
+
+/* --- ADDED: New Responsive Grid Layouts --- */
+
+/* 1. Grid for Project & Work Lists */
+.project-list,
+.work-list {
+    display: grid;
+    /* This creates responsive columns:
+       - They will be at least 340px wide.
+       - 'auto-fit' tells them to fill the space.
+       - '1fr' means they'll all be the same size.
+       On mobile, it will automatically be a 1-column grid.
+       On desktop, it will become a 2-column grid.
+    */
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    
+    /* We are using Grid, so we can remove/override old flex properties */
+    flex-direction: row; /* Override the 'column' default */
+    align-items: stretch;  /* Make cards in a row the same height */
+    justify-content: flex-start;
+}
+
+/* 2. Adjust Cards for the Grid */
+.project-card,
+.work-card {
+    max-width: 100%;    /* Let the grid control the width */
+    width: 100%;
+    align-self: stretch; /* Make cards stretch to fill grid cell */
+}
+
+/* 3. Grid for the "Skills" Section */
+.skills-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* 1 column by default on mobile */
+    gap: 1.5em;
+    margin-top: 1em;
+}
+
+/* 4. Responsive Typography for Hero */
+@media (max-width: 600px) {
+    #hero h1 {
+        font-size: 1.9rem; /* Make hero title smaller on mobile */
+        line-height: 1.3;
+    }
+    .hero-pitch {
+        font-size: 1.1em;
+    }
+}
+
+/* On screens too small for 3 columns, use 1 */
+@media (max-width: 767px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* On screens wide enough for 2 columns, use 2 */
+@media (min-width: 768px) {
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* On screens wide enough for 3 columns, use 3 */
+@media (min-width: 1000px) {
+    .skills-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* --- ADDED: New Image Polish --- */
+
+/* Target the L'SPACE rover image specifically */
+.card-media img[alt="L'SPACE Rover Design"] {
+    object-fit: contain; /* Show the whole image, don't crop */
+    background: #2a2a2a; /* Add a dark background to fill the 16:9 space */
 }
