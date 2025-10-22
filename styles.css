@@ -1,6 +1,3 @@
-/* Engineering Workstation / HUD Theme (Orange Variant) */
-
-/* Font Imports */
 @import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@500;700&family=Roboto+Mono:wght@400;700&display=swap');
 
 :root {
@@ -23,7 +20,7 @@
 
 /* --- Base Navigation Styles --- */
 nav {
-    background: var(--bg-primary); /* Use HUD background color */
+    background: var(--bg-primary);
     border-bottom: 2px solid var(--accent-orange);
     padding: 0.5em 2em;
     display: flex;
@@ -41,7 +38,7 @@ nav .nav-logo {
     letter-spacing: 2px;
 }
 
-/* --- Hamburger Button (Always Visible) --- */
+/* --- Hamburger Button --- */
 .nav-toggle {
     display: block;
     background: none;
@@ -134,7 +131,7 @@ nav .nav-logo {
     padding: 0;
     margin: 0;
     overflow-y: auto;
-    max-height: calc(100vh - 70px); /* Prevent overflow on short screens */
+    max-height: calc(100vh - 70px); 
 }
 
 #main-nav.show {
@@ -171,30 +168,25 @@ nav .nav-logo {
     justify-content: center;
 }
 
-/* --- NEW: Override for Social Icons --- */
-/* This rule overrides '#main-nav li a' for the icons */
 #main-nav li.social-icons a {
-    display: inline-flex; /* Use inline-flex to align icon */
+    display: inline-flex; 
     align-items: center;
     justify-content: center;
-    width: auto; /* Override width: 100% */
-    padding: 0.25em; /* Original small padding */
-    border-radius: 50%; /* Re-apply from .social-icons a */
+    width: auto; 
+    padding: 0.25em; 
+    border-radius: 50%;
     
-    /* Re-apply transitions from .social-icons a */
     transition: background 0.2s, color 0.2s, transform 0.2s;
 }
 
-/* This new rule overrides '#main-nav li a:hover' for the icons */
 #main-nav li.social-icons a:hover,
 #main-nav li.social-icons a:focus {
     background: var(--accent-orange-hover);
     color: #121212;
-    transform: scale(1.15); /* Re-apply from .social-icons a:hover */
+    transform: scale(1.15); 
     outline: none;
-    text-decoration: none; /* Remove underline */
+    text-decoration: none; 
 }
-/* --- End Social Icon Override --- */
 
 
 /* --- Mobile Nav Bar Layout (< 900px) --- */
@@ -216,12 +208,12 @@ nav .nav-logo {
 @media (min-width: 901px) {
     #main-nav {
         /* Positioning */
-        left: auto; /* Unset mobile 'left: 0' */
-        right: 2em; /* Align with nav bar padding */
-        top: calc(100% + 0.5em); /* Add small gap from nav bar */
+        left: auto; 
+        right: 2em; 
+        top: calc(100% + 0.5em); 
         
         /* Size */
-        width: 320px; /* Set a compact width */
+        width: 320px; 
         
         /* Appearance */
         border: 1px solid var(--accent-orange);
@@ -229,21 +221,21 @@ nav .nav-logo {
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         
         /* Layout */
-        align-items: flex-start; /* Align items to the left */
+        align-items: flex-start; 
     }
 
     #main-nav li {
-        text-align: left; /* Align text to the left */
+        text-align: left; 
     }
 
     #main-nav li a {
-        padding: 0.8em 1.2em; /* Tweak padding for compact view */
+        padding: 0.8em 1.2em; 
     }
 
     /* Override center alignment for social icons */
     #main-nav li.social-icons {
         justify-content: flex-start;
-        padding: 0.8em 1.2em; /* Match the <a> padding */
+        padding: 0.8em 1.2em; 
     }
 }
 /* --- End Nav Styles --- */
@@ -305,25 +297,24 @@ textarea {
 .card, .content-section {
     background: transparent;
     border-radius: 8px;
-    box-shadow: none !important; /* No shadow */
+    box-shadow: none !important; 
     border: none;
     padding: 2em 2em 1.5em 2em;
     margin: 2em auto;
-    max-width: 1000px; /* Increased for larger screens */
-    width: 100%;      /* Make container fill available width */
+    max-width: 1000px; 
+    width: 100%;      
     box-sizing: border-box;
     transition: border-color 0.2s, transform 0.2s;
 }
 .card:hover {
     background: #232323;
-    /* Optionally add a border or accent for cards */
     border: 1px solid var(--accent-orange-hover);
     transform: scale(1.03);
     box-shadow: none !important;
 }
 
 .content-section:hover {
-    background: #181818; /* Slightly different shade for content */
+    background: #181818; 
     border: none;
     transform: scale(1.02);
     box-shadow: none !important;
@@ -340,7 +331,7 @@ textarea {
 /* Project Card Specific Styles */
 .project-list {
     display: flex;
-    flex-direction: column; /* Stack vertically */
+    flex-direction: column; 
     gap: 2em;
     justify-content: flex-start;
     align-items: stretch;
@@ -418,7 +409,7 @@ button.cta a {
     display: flex;
     flex-wrap: wrap;
     gap: 1em;
-    justify-content: center; /* Center cards in row */
+    justify-content: center;
     align-items: flex-start;
     margin: 1em 0 2em 0;
 }
@@ -463,7 +454,7 @@ button.cta a {
 /* Professional Experience Section Styles */
 .work-list {
     display: flex;
-    flex-direction: column; /* Stack cards vertically */
+    flex-direction: column; 
     gap: 2em;
     justify-content: flex-start;
     align-items: stretch;
@@ -614,7 +605,7 @@ button.cta a {
 
 /* Headings and Accent Elements */
 h1, h2, h3, h4, h5, h6 {
-    color: var(--accent-orange); /* orange accent for headlines */
+    color: var(--accent-orange); 
     font-family: 'Exo 2', 'Roboto Mono', system-ui, sans-serif;
     font-weight: 700;
     margin-bottom: 0.5em;
@@ -627,15 +618,14 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Paragraphs and Text */
 p, li, label, input, textarea {
-    color: var(--text-primary); /* #EAEAEA */
+    color: var(--text-primary); 
 }
 
 /* Remove orange backgrounds from content */
 .card, .content-section {
     background: transparent;
 }
-
-/* Buttons: Only CTA uses blue/cyan accent */
+/* CTA Buttons */
 button.cta {
     background: linear-gradient(90deg, var(--accent-blue), var(--accent-cyan));
     color: #121212;
@@ -663,6 +653,7 @@ button.cta:hover, button.cta:focus {
     display: block;
 }
 
+/* Hero Section Styles */
 #hero {
     background: var(--bg-content) !important;
 }
@@ -807,47 +798,34 @@ button.cta:hover, button.cta:focus {
     outline: none;
 }
 
-/* --- ADDED: New Responsive Grid Layouts --- */
 
-/* 1. Grid for Project & Work Lists */
 .project-list,
 .work-list {
     display: grid;
-    /* This creates responsive columns:
-       - They will be at least 340px wide.
-       - 'auto-fit' tells them to fill the space.
-       - '1fr' means they'll all be the same size.
-       On mobile, it will automatically be a 1-column grid.
-       On desktop, it will become a 2-column grid.
-    */
     grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
     
-    /* We are using Grid, so we can remove/override old flex properties */
-    flex-direction: row; /* Override the 'column' default */
-    align-items: stretch;  /* Make cards in a row the same height */
+    flex-direction: row; 
+    align-items: stretch; 
     justify-content: flex-start;
 }
 
-/* 2. Adjust Cards for the Grid */
 .project-card,
 .work-card {
-    max-width: 100%;    /* Let the grid control the width */
+    max-width: 100%;  
     width: 100%;
-    align-self: stretch; /* Make cards stretch to fill grid cell */
+    align-self: stretch; 
 }
 
-/* 3. Grid for the "Skills" Section */
 .skills-grid {
     display: grid;
-    grid-template-columns: 1fr; /* 1 column by default on mobile */
+    grid-template-columns: 1fr; 
     gap: 1.5em;
     margin-top: 1em;
 }
 
-/* 4. Responsive Typography for Hero */
 @media (max-width: 600px) {
     #hero h1 {
-        font-size: 1.9rem; /* Make hero title smaller on mobile */
+        font-size: 1.9rem; 
         line-height: 1.3;
     }
     .hero-pitch {
@@ -855,31 +833,27 @@ button.cta:hover, button.cta:focus {
     }
 }
 
-/* On screens too small for 3 columns, use 1 */
 @media (max-width: 767px) {
     .skills-grid {
         grid-template-columns: 1fr;
     }
 }
 
-/* On screens wide enough for 2 columns, use 2 */
 @media (min-width: 768px) {
     .skills-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-/* On screens wide enough for 3 columns, use 3 */
 @media (min-width: 1000px) {
     .skills-grid {
         grid-template-columns: repeat(3, 1fr);
     }
 }
 
-/* --- ADDED: New Image Polish --- */
 
 /* Target the L'SPACE rover image specifically */
 .card-media img[alt="L'SPACE Rover Design"] {
-    object-fit: contain; /* Show the whole image, don't crop */
-    background: #2a2a2a; /* Add a dark background to fill the 16:9 space */
+    object-fit: contain; 
+    background: #2a2a2a; 
 }
